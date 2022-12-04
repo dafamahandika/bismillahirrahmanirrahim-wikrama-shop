@@ -14,7 +14,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-
+        
     }
 
     /**
@@ -22,7 +22,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createRegister()
     {
         return view('register.index');
     }
@@ -33,7 +33,7 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeRegister(Request $request)
     {
         $register = $request->validate([
             "name" => ["required"],

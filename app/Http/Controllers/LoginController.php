@@ -22,7 +22,7 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createLogin()
     {
         return view('login.index');
     }
@@ -33,7 +33,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeLogin(Request $request)
     {
         $login = request()->validate([
             'email' => ['required', 'email'],
@@ -43,7 +43,7 @@ class LoginController extends Controller
         if(Auth::attempt($login)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard');
+            return redirect()->route('indexProduct');
         }
 
         return back()->with('loginError', 'Email atau Username Tidak Sesuai, Login Error!');
@@ -55,7 +55,7 @@ class LoginController extends Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
 
-        return redirect('login');
+        return redirect() -> route('createLogin');
     }
     /**
      * Display the specified resource.

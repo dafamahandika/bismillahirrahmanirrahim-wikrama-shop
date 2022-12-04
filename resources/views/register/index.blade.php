@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Register</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   </head>
   <body>
@@ -17,10 +18,11 @@
                     </div>
                 @endif
                 <div class="container">
-                    <main class="form-register">
-                        <form action="{{ route ('RegisterStore') }}" method="POST">
+                    <main class="form-register input">
+                        <div class="card shadow p-5 bg-secondary bg-opacity-25">
+                        <form action="{{ route ('storeRegister') }}" method="POST">
                            @csrf
-                            <h1 class="h3 mb-3 fw-normal">Register</h1>
+                            <h1 class="h3 mb-3 fw-normal text-center">Register</h1>
                             <div class="form-floating">
                                 <input type="text" name="name" class="form-control mt-2" id="name" placeholder="name">
                                 <label for="name">Name</label>
@@ -33,10 +35,12 @@
                                 <input type="password" name="password" class="form-control mt-2" id="password" placeholder="Password">
                                 <label for="password">Password</label>
                             </div>
-
-                            <button class="w-100 btn btn-lg btn-secondary mt-4" type="submit">Register</button>
+                            <div class="row justify-content-center">
+                            <button class="w-50 btn btn-lg btn-secondary mt-4" type="submit">Register</button>
+                            </div>
                         </form>
-                        <small class="d-block text-center mt-3 ">Sudah punya akun? <a href="{{ route('login') }}">Login</a></small>
+                        <small class="d-block text-center mt-3 ">Sudah punya akun? <a href="{{ route('createLogin') }}">Login</a></small>
+                    </div>
                     </main>
                 </div>
             </div>
